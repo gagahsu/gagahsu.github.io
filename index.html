@@ -117,24 +117,24 @@ xmlns:og="http://opengraph.org/schema/">
         }
     });
     
-    FB.api('/146515632080173/feed/comments', 
+    FB.api('/146515632080173_1030686933663034/comments', 
       function(response) {
         if (response && !response.error) {
           var feedData = response.data;
           console.log(response.data);
           document.getElementById('message').innerHTML =
-          'Message: ' + response.data[0].id+ response.data[0].comments+ '!';
+          'Message: ' + response.data[0].message+ response.data[0].from[0].name+ '!';
         }else {
            alert('error');
         }
     });
     
     FB.api(
-  '/146515632080173',
+  '/146515632080173_1030686933663034',
   'GET',
   {"fields":"feed{comments}"},
   function(response) {
-      alert(response + ", " + response.feed.data[0].comments.data[0].message);
+      alert(response + ", " + response.comments.data[0].message + ", "+response.comments.data[0].from.name);
   }
 );
   }
