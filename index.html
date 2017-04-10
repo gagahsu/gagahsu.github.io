@@ -18,7 +18,8 @@ var obj = JSON.parse(json, function(key, value) {
     return value;
 });
 
-FB.api('/me/feed', 'post', { "fields":"feed{message,id}"}, function(response) {
+FB.api('/me/',
+  'GET', { "fields":"feed{message,id}"}, function(response) {
   if (!response || response.error) {
     alert('Error occured');
   } else {
