@@ -105,9 +105,7 @@ xmlns:og="http://opengraph.org/schema/">
         'Thanks for logging in, ' + response.name + '!';
     });
 
-    FB.api('/146515632080173',
-           'GET',
-           {"fields":"feed{message}"}, 
+    FB.api('/146515632080173/feed/data', 
       function(response) {
       document.getElementById('message').innerHTML =
         'Message: ' + response.message + '!';
