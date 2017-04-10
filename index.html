@@ -113,11 +113,8 @@ xmlns:og="http://opengraph.org/schema/">
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email" autologoutlink="true" onlogin="checkLoginState();">
 </fb:login-button>
-  
-<fb:logout-button scope="public_profile,email" onlogout="fblogout();">
-</fb:logout-button>
 
 <div id="status">
 </div>
