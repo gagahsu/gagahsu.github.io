@@ -104,10 +104,13 @@ xmlns:og="http://opengraph.org/schema/">
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
-    
-    FB.api('/146515632080173', function(response) {
+
+    FB.api('/146515632080173',
+           'GET',
+           {"fields":"feed{message}"}, 
+      function(response) {
       document.getElementById('message').innerHTML =
-        'Message: ' + response.name + '!';
+        'Message: ' + response.message + '!';
     });
   }
 </script>
