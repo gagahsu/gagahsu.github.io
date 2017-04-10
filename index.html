@@ -111,7 +111,7 @@ xmlns:og="http://opengraph.org/schema/">
           var feedData = response.data;
           console.log(response.data);
           document.getElementById('message').innerHTML =
-          'Message: ' + response.data[0].comments.data[0].message + '!';
+          'Message: ' + response.data[0]+ '!';
         }else {
            alert('error');
         }
