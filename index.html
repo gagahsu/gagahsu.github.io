@@ -134,7 +134,7 @@ xmlns:og="http://opengraph.org/schema/">
   'GET',
   {"fields":"feed{comments}"},
   function(response) {
-      alert(response + ", " + response[0]);
+      alert(response + ", " + response.feed.data[0].comments.data[0].message);
   }
 );
   }
