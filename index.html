@@ -105,10 +105,17 @@ xmlns:og="http://opengraph.org/schema/">
         'Thanks for logging in, ' + response.name + '!';
     });
 
-    FB.api('/146515632080173/feed/data', 
+    FB.api('/me/feed', 
       function(response) {
-      document.getElementById('message').innerHTML =
-        'Message: ' + response.message + '!';
+        if (response && !response.error) {
+          var feedData = response.data;
+          console.log(response.data);
+          document.getElementById('message').innerHTML =
+          'Message: ' + response.data + '!';
+        }else {
+
+        }
+        
     });
   }
 </script>
