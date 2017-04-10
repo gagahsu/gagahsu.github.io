@@ -18,15 +18,13 @@ var obj = JSON.parse(json, function(key, value) {
     return value;
 });
 
-  FB.api(
-  '/146515632080173',
-  'GET',
-  {"fields":"feed{comments}"},
-  function(response) {
-     alert(response.fields);
-    alert(response.feed);
+FB.api('/me/feed', 'post', { message,id: "10155332830854781_10155306250449781"}, function(response) {
+  if (!response || response.error) {
+    alert('Error occured');
+  } else {
+    alert('Post ID: ' + response.message);
   }
-);
+});
 
 
 }
