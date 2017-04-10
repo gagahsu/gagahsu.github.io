@@ -17,18 +17,32 @@ var obj = JSON.parse(json, function(key, value) {
     } 
     return value;
 });
+
+function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the persopren.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        login(response.authResponse.accessToken);
+    } else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        console.log('The person is logged into Facebook, but not your app');
+    } else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        console.log("The person is not logged into Facebook");
+    }
+}
   
-  FB.login(function(){}, {scope: 'publish_actions'});
-
-FB.api('/me/',
-  'GET', { "fields":"feed{message,id}"}, function(response) {
-  if (!response || response.error) {
-    alert('Error occured');
-  } else {
-    alert('Post ID: ' + response.message);
-  }
-});
-
+FB.login(function(response)
+    {
+        statusChangeCallback(response);
+        console.log(response);
+    }, {scope: 'publish_actions'});
 
 }
 
