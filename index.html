@@ -21,9 +21,10 @@ var obj = JSON.parse(json, function(key, value) {
   FB.api(
   '/146515632080173',
   'GET',
-  {"fields":"id,name"},
+  {"fields":"feed{comments}"},
   function(response) {
-     alert(response.field);
+     alert(response.fields);
+    alert(response.feed{comments});
     alert(response.feed);
   }
 );
