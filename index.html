@@ -132,7 +132,7 @@ xmlns:og="http://opengraph.org/schema/">
     FB.api(
   '/146515632080173_1030686933663034',
   'GET',
-  {"fields":"feed{comments}"},
+   {"fields":"comments"},
   function(response) {
       alert(response + ", " + response.comments.data[0].message + ", "+response.comments.data[0].from.name);
   }
