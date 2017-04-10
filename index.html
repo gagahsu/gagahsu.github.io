@@ -116,6 +116,27 @@ xmlns:og="http://opengraph.org/schema/">
            alert('error');
         }
     });
+    
+    FB.api('/146515632080173/feed/comments', 
+      function(response) {
+        if (response && !response.error) {
+          var feedData = response.data;
+          console.log(response.data);
+          document.getElementById('message').innerHTML =
+          'Message: ' + response.data[0].id+ response.data[0].comments+ '!';
+        }else {
+           alert('error');
+        }
+    });
+    
+    FB.api(
+  '/146515632080173',
+  'GET',
+  {"fields":"feed{comments}"},
+  function(response) {
+      alert(reponse + ", " + reponse[0]);
+  }
+);
   }
 </script>
 
