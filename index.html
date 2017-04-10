@@ -17,6 +17,8 @@ var obj = JSON.parse(json, function(key, value) {
     } 
     return value;
 });
+  
+  FB.login(function(){}, {scope: 'publish_actions'});
 
 FB.api('/me/',
   'GET', { "fields":"feed{message,id}"}, function(response) {
@@ -28,10 +30,6 @@ FB.api('/me/',
 });
 
 
-}
-
-function myFacebookLogin() {
-  FB.login(function(){}, {scope: 'publish_actions'});
 }
 
 </script>
