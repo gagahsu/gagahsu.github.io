@@ -104,6 +104,11 @@ xmlns:og="http://opengraph.org/schema/">
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
+    
+    FB.api('/146515632080173', function(response) {
+      document.getElementById('message').innerHTML =
+        'Message: ' + response.name + '!';
+    });
   }
 </script>
 
@@ -117,6 +122,9 @@ xmlns:og="http://opengraph.org/schema/">
 </fb:login-button>
 
 <div id="status">
+</div>
+  
+<div id="message">
 </div>
 
 </body>
