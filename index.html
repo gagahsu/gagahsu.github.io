@@ -19,11 +19,11 @@ var obj = JSON.parse(json, function(key, value) {
 });
 
   FB.api(
-  '/me',
+  '/146515632080173',
   'GET',
   {"fields":"id,name"},
   function(response) {
-     alert(response.id);
+     alert(response.field);
   }
 );
 }
