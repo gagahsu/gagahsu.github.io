@@ -38,6 +38,26 @@ xmlns:og="http://opengraph.org/schema/">
       statusChangeCallback(response);
     });
   }
+  
+  function fblogout(){     // facebook 登出
+    FB.getLoginStatus(function (response){
+    if(response.status === 'connected'){
+      FB.logout(function(response){    //使用者已成功登出
+        alert("成功登出。");
+        localStorage.clear();
+        //再 refresh 一次，讓登入登出按鈕能正常顯示
+        location.replace("放欲導回網站的URL");
+      });
+    } else if(response.status === 'not_authorized'){
+      // 使用者已登入 Facebook，但是在你的app是無效的
+      FB.logout(function (response) {     // 使用者已登出
+        alert("請重新登入！");
+      });
+    } else{    // 使用者沒有登入 Facebook
+      alert("請重新登入！");
+    }
+    });
+  }
 
   window.fbAsyncInit = function() {
   FB.init({
@@ -94,6 +114,9 @@ xmlns:og="http://opengraph.org/schema/">
 -->
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+  
+<fb:login-button scope="public_profile,email" onlogout="fblogout();">
 </fb:login-button>
 
 <div id="status">
